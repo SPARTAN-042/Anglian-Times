@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/output.css" rel="stylesheet">
+    <script src="/tailwind.config.js"></script>
+    <title>The Anglian Times</title>
+    <style>
+
+/*--Mobile Responsiveness--*/
+
+.dropdown-menu1 {
+    display: none;
+}
+.dropdown-menu2 {
+    display: none;
+}
+.dropdown-menu3 {
+	display: none;
+}
+
+.show1 {
+    display: block;
+}
+.show2 {
+    display: block;
+}
+.show3 {
+	display: block;
+}
+
+.activee:active {
+    background-color: gold;
+}
+    </style>
+</head>
+<body>
+    <!--HEADER START-->
+    <div>
+		<div class="flex justify-center">
+			<h1 class=" font-serif text-5xl lg:text-7xl font-light text-center text-gray-500 uppercase pt-8 pb-4">The Anglian Times</h1>
+		</div>
+		<hr class="border-black border">
+		<div class="subhead">
+			<div class="flex justify-center p-3 text-md sm:text-xl md:text-1xl lg:text-2xl text-gray-500" id="clockbox"></div>
+			<script type="text/javascript">
+				var tday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+				var tmonth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+				function GetClock() {
+					var d = new Date();
+					var nday = d.getDay(),
+						nmonth = d.getMonth(),
+						ndate = d.getDate(),
+						nyear = d.getFullYear();
+					var nhour = d.getHours(),
+						nmin = d.getMinutes(),
+						nsec = d.getSeconds(),
+						ap;
+					if (nhour == 0) {
+						ap = " AM";
+						nhour = 12;
+					} else if (nhour < 12) {
+						ap = " AM";
+					} else if (nhour == 12) {
+						ap = " PM";
+					} else if (nhour > 12) {
+						ap = " PM";
+						nhour -= 12;
+					}
+					if (nmin <= 9) nmin = "0" + nmin;
+					if (nsec <= 9) nsec = "0" + nsec;
+					var clocktext = "" + tday[nday] + ", " + tmonth[nmonth] + " " + ndate + ", " + nyear + " " + nhour + ":" + nmin + ":" + nsec + ap + "";
+					document.getElementById('clockbox').innerHTML = clocktext;
+				}
+				GetClock();
+				setInterval(GetClock, 1000);
+			</script>
+		</div>
+		<!--HEADER END-->
+
+		<!--NAVBAR START-->
+		<hr class="border-black border">
+		<div class="">
+			<ul class="flex justify-center flex-col bg-gray-300 sm:flex-row sm:bg-gray-700 sm:text-gray-200 sm:py-3">
+				<li class="p-3 text-center border sm:border-none hover:bg-gray-400 sm:hover:bg-transparent">
+                    <a class="bg-gray-300 active:bg-green-900 hover:-translate-y-0.5 transform transition" href="/index.html">
+                        <div class="flex justify-center sm:hover:text-blue-400 hover:-translate-y-0.5 transform transition">
+                            <svg class="flex items-center mt-1 ml-2 fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                            </svg>
+                            <span class="flex justify-center ml-2 pr-8 sm:pr-0 activee">Home</span>
+                        </div>
+                    </a>
+                </li>
+
+                <div id="dropdown1" class="flex-col p-3 text-center border sm:border-none hover:bg-gray-400 sm:group sm:inline-block sm:relative sm:hover:bg-transparent">
+					<li class="flex flex-col p-0 justify-center">
+						<a class="flex justify-center dropdown1 hover:-translate-y-0.5 transform transition" href="#">
+							<div class="flex justify-center sm:hover:text-blue-400">
+                                <svg class="flex items-center mt-1 ml-2 fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
+                                </svg>
+								<div class="flex justify-center">
+									<span class="flex justify-center ml-2">Paper 1</span>
+									<svg class="flex items-center mt-1 ml-2 fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+										<path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+									</svg>
+								</div>
+							</div>
+							<ul id="menu1" class="flex flex-col text-center dropdown-menu1 text-gray-700 sm:absolute sm:hidden sm:group-hover:block">
+                              <div class="sm:absolute sm:mt-7 sm:py-2 sm:w-28 sm:bg-gray-700 sm:shadow-xl sm:z-10 sm:group-hover:block sm:rounded-b-sm">
+								<li class=""><a class="sm:block hover:text-blue-700 sm:hover:text-blue-400 text-gray-700 sm:text-gray-100 flex flex-row justify-center text-center p-2 hover:-translate-y-0.5 transform transition" href="#">Crime and Punishment</a></li>
+								<hr class="border-black">
+								<li class=""><a class="sm:block hover:text-blue-700 sm:hover:text-blue-400 text-gray-700 sm:text-gray-100 flex flex-row justify-center text-center p-2 hover:-translate-y-0.5 transform transition" href="#">Whitechapel</a></li>
+                              </div>
+					        </ul>
+						</a>
+					</li>
+				</div>
+
+				<div id="dropdown2" class="flex-col p-3 inline-block text-center border sm:border-none hover:bg-gray-400 sm:hover:bg-transparent">
+					<li class="flex flex-col p-0 justify-center">
+						<a class="flex justify-center dropdown2 hover:-translate-y-0.5 transform transition" href="#">
+                            <div class="flex justify-center sm:hover:text-blue-400">
+                                <svg class="flex items-center mt-1 ml-2 fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="flex justify-center ml-2">Paper 2</span>
+                                <svg class="flex items-center mt-1 ml-2 fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                </svg>
+                            </div>
+							<ul id="menu2" class="flex flex-col text-center dropdown-menu2 text-gray-700 sm:absolute">
+                                <div class="sm:absolute sm:mt-7 sm:py-2 sm:w-28 sm:bg-gray-700 sm:shadow-xl sm:z-10 sm:rounded-b-sm">
+                                    <li><a class="inline-block hover:text-blue-700 sm:hover:text-blue-400 text-gray-700 sm:text-gray-100 flex flex-row justify-center text-center p-2 hover:-translate-y-0.5 transform transition" href="#">Anglo-Saxons and Normans</a></li>
+                                    <hr>
+                                    <li><a class="inline-block hover:text-blue-700 sm:hover:text-blue-400 text-gray-700 sm:text-gray-100 flex flex-row justify-center text-center p-2 hover:-translate-y-0.5 transform transition" href="#">Cold War and Superpower Relations</a></li>
+                                </div>
+							</ul>
+						</a>
+					</li>
+				</div>
+
+				<div id="dropdown3" class="flex-col p-3 text-center inline-block border sm:border-none hover:bg-gray-400 sm:hover:bg-transparent">
+					<li class="flex flex-col p-0 justify-center">
+						<a class="flex justify-center hover:-translate-y-0.5 transform transition" href="#">
+                            <div class="flex justify-center sm:hover:text-blue-400">
+                                <svg class="flex items-center mt-1 ml-2 fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="flex justify-center ml-2">Paper 3</span>
+                                <svg class="flex items-center mt-1 ml-2 fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                </svg>
+                            </div>
+                            <ul id="menu3" class="flex flex-col text-center dropdown-menu3 text-gray-700 sm:absolute">
+                                <div class="sm:absolute sm:mt-7 sm:py-2 sm:w-28 sm:bg-gray-700 sm:shadow-xl sm:z-10 sm:rounded-b-sm">
+                                    <li><a class="flex flex-row justify-center text-center p-2 inline-block hover:text-blue-700 sm:hover:text-blue-400 sm:text-gray-100 hover:-translate-y-0.5 transform transition" href="#">Weimar Germany</a></li>
+                                </div>
+                            </ul>
+                        </a>
+					</li>
+				</div>
+
+				<a href="#">
+					<li class="p-3 text-center border sm:border-none hover:bg-gray-400 sm:hover:bg-transparent">
+                        <a class="flex justify-center sm:hover:text-blue-400 hover:-translate-y-0.5 transform transition" href="#">
+                            <svg class="flex justify-center mt-1 ml-2 fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M9 9a2 2 0 114 0 2 2 0 01-4 0z" />
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a4 4 0 00-3.446 6.032l-2.261 2.26a1 1 0 101.414 1.415l2.261-2.261A4 4 0 1011 5z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="flex justify-center ml-2 pr-4">Glossary</span>
+                        </a>
+                    </li>
+				</a>
+			</ul>
+		</div>
+	</div>
+  <!--NAVBAR END-->
+
+  <!--HERO START-->
+  <hr class="border-black border">
+  <div class="bg-gray-100 p-8">
+	  <div class="text-gray-700 ml-3 mt-5 hero-image1 ">
+		  <h1 class="text-3xl mb-2 italic font-bold border-b-2 ">The Home Of GCSE History</h1>
+		  <h3 class="text-lg mt-2 italic font-semibold">Up To Specification</h3>
+          
+	  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script>
+	//FIRST DROPDOWN
+
+	// Get the button, and when the user clicks on it, execute myFunction
+	document.getElementById("dropdown1").onclick = function() {
+		myFunction1()
+	};
+
+	/* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
+	function myFunction1() {
+		document.getElementById("menu1").classList.toggle("show1");
+	}
+
+	//SECOND DROPDOWN
+
+	// Get the button, and when the user clicks on it, execute myFunction
+	document.getElementById("dropdown2").onclick = function() {
+		myFunction2()
+	};
+
+	/* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
+	function myFunction2() {
+		document.getElementById("menu2").classList.toggle("show2");
+	}
+
+	//THIRD DROPDOWN
+
+	// Get the button, and when the user clicks on it, execute myFunction
+	document.getElementById("dropdown3").onclick = function() {
+		myFunction3()
+	};
+
+	/* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
+	function myFunction3() {
+		document.getElementById("menu3").classList.toggle("show3");
+	}
+
+	</script>
+
+</body>
+</html>

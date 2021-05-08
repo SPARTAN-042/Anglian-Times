@@ -1,0 +1,13 @@
+{
+  "name": "Anglian-Times-V3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "postcss css/styles.css -o build/styles.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
